@@ -1,0 +1,16 @@
+# Node modules
+node_modules
+
+# Public dir build
+public
+
+# Adonis directory for storing tmp files
+tmp
+
+# Environment variables, never commit this file
+.env
+.env.production
+.env.save
+
+# The development sqlite file
+database/*.sqlite

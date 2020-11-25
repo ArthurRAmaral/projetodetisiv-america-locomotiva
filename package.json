@@ -1,0 +1,37 @@
+{
+  "name": "motorman",
+  "description": "Sistema de Gestão da Equipe de Futebol Americano do América Locomotiva",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "scripts": {
+    "test": "yarn --cwd api/ test",
+    "api:dev": "yarn --cwd api/ dev",
+    "client:dev": "yarn --cwd client/ start",
+    "dev": "concurrently \"yarn:api:dev\" \"yarn:client:dev\"",
+    "api:lint": "yarn --cwd api/ lint",
+    "client:lint": "yarn --cwd api/ lint",
+    "lint": "yarn api:lint && yarn client:lint",
+    "api:install": "yarn --cwd api/ install",
+    "client:install": "yarn --cwd client/ install",
+    "install-all": "yarn install && npm run client:install && npm run api:install",
+    "build": "yarn install-all && yarn --cwd client/ build && node movePublic.js && yarn --cwd api/ node ace migration:run --force",
+    "start": "yarn --cwd api start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelbotazini/motorman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelbotazini/motorman/issues"
+  },
+  "homepage": "https://github.com/rafaelbotazini/motorman#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.0"
+  }
+}
